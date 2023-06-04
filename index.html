@@ -121,9 +121,9 @@
                         </div>
 
                         <div class="row justify-content-center my-3 px-3">
-                          <button type="button" class="btn-block btn-color" onclick="deploy1()">Deploy</button>
+                          <button type="button" class="btn-block btn-color" onclick="deploy1()" id="getDataButton">Deploy</button>
                         </div>
-                        <p id="accountArea"></p>
+                        <div id="contractValue"></div>
                       </form>
 
                       <script>
@@ -132,13 +132,13 @@
                         async function deploy1()
                         {
                           event.preventDefault()
-                          // let account;
-                          // if(window.ethereum !== "undefined") {
-                              // const accounts = await ethereum.request({ method: "eth_requestAccounts"});
-                              // account = accounts[0];
-                              // document.getElementById("accountArea").innerHTML = account;
+                          let account;
+                          if(window.ethereum !== "undefined") {
+                              const accounts = await ethereum.request({ method: "eth_requestAccounts"});
+                              account = accounts[0];
+                              
 
-                          // }
+                          }
                           if (window.ethereum !== 'undefined')
                           {
                               // we are in the browser and metamask is running
@@ -191,7 +191,7 @@
                           const name=document.getElementById('name').value
                           const fathername=document.getElementById('fathername').value
                           const cgpa=document.getElementById('cgpa').value
-                          const result = await fetch('/api/admin', {
+                          const result = await fetch('/', {
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json'
@@ -201,7 +201,7 @@
                               name,
                               fathername,
                               cgpa,
-                              accounts
+                              account
                             })
                           }).then((res) => res.json())
 

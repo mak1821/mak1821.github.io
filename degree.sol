@@ -32,6 +32,10 @@ contract degree
     {
         return courses;
     }
+    function getname() public view returns(string memory, string memory, string memory, string memory)
+    {
+        return (reg_no, name, father_Name, cgpa);
+    }
 
 }
 
