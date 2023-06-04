@@ -39,3 +39,25 @@ ABI = output.contracts["degree.sol"]["degree"].abi;
 bytecode = output.contracts["degree.sol"]["degree"].evm.bytecode.object;
 console.log("Bytecode: ", bytecode);
 console.log("ABI: ", ABI);
+
+contract = new web3.eth.Contract(ABI);
+let defaultAccount;
+web3.eth.getAccounts().then((accounts) => {
+  console.log("Accounts:", accounts); //it will show all the ganache accounts
+
+  defaultAccount = accounts[0];
+  console.log("Default Account:", defaultAccount);  //to deploy the contract from default Account
+  contract
+    .deploy({ data: bytecode })
+    .send({ from: defaultAccount, gas: 470000 })
+    .on("receipt", (receipt) => { //event,transactions,contract address will be returned by blockchain
+      console.log("Contract Address:", receipt.contractAddress);
+    })
+    .then((demoContract) => {
+      demoContract.methods.x().call((err, data) => {
+        console.log("Initial Value:", data);
+      });
+    });
+  
+});
+
