@@ -1,3 +1,7 @@
+const express = require('express')
+const path = require('path')
+const bodyparser= require('body-parser')
+
 solc = require("solc");
 
 // file system - read and write files to your computer
@@ -9,7 +13,16 @@ Web3 = require("web3");
 // setup a http provider
 web3 = new Web3(new Web3.providers.HttpProvider("https://cf11-2400-adc5-131-8d00-8168-9b16-f22f-7ab9.ngrok-free.app"));
 
+const app = express()
+app.use('/', express.static(path.join(__dirname, '')))
+app.use(bodyparser.json())
+
 // reading the file contents of the smart  contract
+
+app.post('/', async (req, res) => {
+
+const {reg, name, fathername, cgpa, account} = req.body
+console.log(reg, name, fathername, cgpa, account)
 
 fileContent = fs.readFileSync("degree.sol").toString();
 console.log(fileContent);
@@ -48,7 +61,7 @@ web3.eth.getAccounts().then((accounts) => {
   defaultAccount = accounts[0];
   console.log("Default Account:", defaultAccount);  //to deploy the contract from default Account
   contract
-    .deploy({ data: bytecode })
+    .deploy({ data: bytecode, arguments: ["L1F19BSCS0134", "Ali Khawaja", "Tanvir", 3.58] })
     .send({ from: defaultAccount, gas: 470000 })
     .on("receipt", (receipt) => { //event,transactions,contract address will be returned by blockchain
       console.log("Contract Address:", receipt.contractAddress);
@@ -60,4 +73,9 @@ web3.eth.getAccounts().then((accounts) => {
     });
   
 });
+})
+
+app.listen(3000, () => {
+    console.log('Server running at port 3000')
+})
 
