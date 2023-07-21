@@ -1,4 +1,20 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="./assets/css/style_transcript.css"><link href="assets/img/favicon-32x32.png" rel="icon"><title>DVS - Transcript Result</title><script defer="defer" src="getcompleteinfoind.js"></script></head><body><div class="result-card"><style>imglogo {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style_transcript.css">
+    
+  <link href="assets/img/favicon-32x32.png" rel="icon">
+    <title>DVS - Transcript Result</title>
+</head>
+
+<body>
+    <div class="result-card">
+        <style>
+            imglogo {
               text-align: left;
               width: 5px;
               
@@ -8,10 +24,123 @@
                 margin-left: 100px;
                 margin-right: 10px;
                 
-            }</style><style>.qr-code {
+            }
+          </style>
+            <style>
+                .qr-code {
                   max-width: 100px;
                   margin: 10px;
-                }</style><img src="./assets/img/ucplogo1.png" alt="UCP LOGO" class="imglogo" width="80px"><br><img src="./assets/img/ucptext.png" alt="UCP LOGO" class="imgtext center" style="text-align: left;"><br><div id="academic_t"><p>ACADEMIC TRANSCRIPT</p></div><div align="center"><img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=100x100&chld=L|0" class="qr-code img-thumbnail img-responsive"/></div><h3>BACHELORS IN COMPUTER SCIENCE</h3><table class="responsive-table"><thead><tr><th>Student Name:</th><td id="name"></td><th>Registration No:</th><td id="reg"></td></tr><tr><th>Father Name:</th><td id="fathername"></td><th>DOB:</th><td id="dob"></td></tr><tr><th>CNIC #</th><td colspan="3" id="cnic"></td></tr><tr><th>CGPA:</th><td colspan="3" id="cgpa"></td></tr></thead></table><div class="semester-table"><table id="semesterTable" class="responsive-table"><thead><tr><th>Course ID</th><th>Title of Course</th><th>CR. Hrs</th><th>Grade</th></tr></thead><tbody id="semesterTableBody"><tr><td id="course_code-centre"></td><td id="title-centre"></td><td id="cr-centre"></td><td id="grade-centre"></td></tr></tbody></table></div><button id="showsubjects" class="center">Show Subjects</button></div><script src="https://code.jquery.com/jquery-3.5.1.js"></script><script>// Function to HTML encode the text
+                }
+              </style>    
+        <img src="./assets/img/ucplogo1.png" alt="UCP LOGO" class="imglogo" width="80px"><br>   
+       
+        <img src="./assets/img/ucptext.png" alt="UCP LOGO" class="imgtext center" style="text-align: left;"><br>
+        
+
+        <div id="academic_t">
+            <p>
+                ACADEMIC TRANSCRIPT
+            </p>
+        </div>
+        <div align="center">
+            <img src=
+    "https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=100x100&chld=L|0"
+            class="qr-code img-thumbnail img-responsive" />
+            </div>
+        <!-- <br> -->
+        <h3>
+            BACHELORS IN COMPUTER SCIENCE
+        </h3>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>
+                        Student Name:
+                    </th>
+                    <td id="name">
+                    </td>
+                    <th>
+                        Registration No:
+                    </th>
+                    <td id="reg">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Father Name:
+                    </th>
+                    <td id="fathername">
+                    </td>
+                    <th>
+                        DOB:
+                    </th>
+                    <td id="dob">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        CNIC #
+                    </th>
+                    <td colspan="3" id="cnic">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        CGPA:
+                    </th>
+                    <td colspan="3" id="cgpa">
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="semester-table">
+            <table id="semesterTable" class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Course ID
+                        </th>
+                        <th>
+                            Title of Course
+                        </th>
+                        <th>
+                            CR. Hrs
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody id="semesterTableBody">
+                    <tr>
+                        <td id="course_code-centre">
+                        </td>
+                        <td id="title-centre">
+                        </td>
+                        <td id="cr-centre">
+                        </td>
+                        <td id="grade-centre">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="showsubjects" class="center">Show Subjects</button>
+        
+	</div>
+
+
+
+    </div>
+    <script src=
+        "https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+
+    <script>
+        // Function to HTML encode the text
         // This creates a new hidden element,
         // inserts the given text into it
         // and outputs it out as HTML
@@ -30,4 +159,10 @@
             '&chs=100x100&chld=L|0'
             $('.qr-code').attr('src', finalURL);
         });
-        });</script><script src="./getcompleteinfoind.js"></script></body><script src="https://code.jquery.com/jquery-3.5.1.js"></script></html>
+        });
+    </script>
+        </div>
+    <script src="./getcompleteinfoind.js"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</html>
